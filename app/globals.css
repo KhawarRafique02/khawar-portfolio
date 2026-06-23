@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS variables ── */
+:root {
+  --bg:          #F8FAFC;
+  --bg2:         #F1F5F9;
+  --surface:     #FFFFFF;
+  --surface2:    #EFF6FF;
+  --border:      #E2E8F0;
+  --text:        #0F172A;
+  --text-2:      #475569;
+  --text-3:      #94A3B8;
+  --accent:      #7C3AED;
+  --accent-h:    #6D28D9;
+  --accent-glow: rgba(124,58,237,0.15);
+}
+
+.dark {
+  --bg:          #0A0A0F;
+  --bg2:         #0D0D16;
+  --surface:     #111118;
+  --surface2:    #1A1A27;
+  --border:      #1E1E2E;
+  --text:        #F1F5F9;
+  --text-2:      #94A3B8;
+  --text-3:      #475569;
+  --accent:      #8B5CF6;
+  --accent-h:    #7C3AED;
+  --accent-glow: rgba(139,92,246,0.2);
+}
+
+/* ── Base ── */
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ── Selection ── */
+::selection { background: var(--accent-glow); color: var(--accent); }
+
+/* ── Reusable utilities ── */
+@layer utilities {
+  .section-pad   { @apply py-24 px-6 md:px-12 lg:px-24; }
+  .card-glass    { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+  .card-glass:hover { border-color: var(--accent); box-shadow: 0 0 24px var(--accent-glow); }
+  .accent-text   { color: var(--accent); }
+  .text-muted    { color: var(--text-2); }
+  .text-dimmed   { color: var(--text-3); }
+  .section-title { @apply font-display font-bold text-3xl md:text-4xl mb-4; color: var(--text); }
+  .section-sub   { @apply text-base md:text-lg mb-16; color: var(--text-2); }
+  .btn-primary   {
+    background: var(--accent);
+    color: #fff;
+    @apply px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200;
+  }
+  .btn-primary:hover { background: var(--accent-h); transform: translateY(-1px); box-shadow: 0 6px 20px var(--accent-glow); }
+  .btn-outline   {
+    border: 1.5px solid var(--border);
+    color: var(--text);
+    @apply px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+}
+
+/* ── Terminal block ── */
+.terminal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.terminal-bar {
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.terminal-dot { width: 12px; height: 12px; border-radius: 50%; }
+.terminal-body { padding: 20px 24px; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.8; }
+
+/* ── Timeline ── */
+.timeline-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+}
+.timeline-dot {
+  width: 12px; height: 12px;
+  background: var(--accent);
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  position: absolute;
+  left: -5px;
+  top: 6px;
+}
+
+/* ── Gradient text ── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent) 0%, #06B6D4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Skill tag ── */
+.skill-tag {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.skill-tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
+
+/* ── Section divider ── */
+.section-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+/* ── Animations delay helpers ── */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }

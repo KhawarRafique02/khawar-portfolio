@@ -14,10 +14,10 @@ import {
 const NAV_LINKS = ['About', 'Skills', 'Projects', 'Experience', 'Contact']
 
 const SKILLS = {
-  Frontend:  ['React.js', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML / CSS'],
-  Backend:   ['Node.js', 'REST APIs', 'Express.js', 'API Integration'],
+  Frontend: ['React.js', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML / CSS'],
+  Backend: ['Node.js', 'REST APIs', 'Express.js', 'API Integration'],
   Databases: ['Supabase', 'Firebase', 'PostgreSQL', 'MongoDB'],
-  Tools:     ['Git & GitHub', 'Vercel', 'VS Code', 'Figma', 'Postman'],
+  Tools: ['Git & GitHub', 'Vercel', 'VS Code', 'Figma', 'Postman'],
 }
 
 const PROJECTS = [
@@ -83,16 +83,16 @@ const TESTIMONIALS = [
 ]
 
 const SOCIAL = {
-  github:   'https://github.com/KhawarRafique02',
-  linkedin: 'https://linkedin.com/in/khawar-rafique', // TODO: update with your exact LinkedIn URL
-  email:    'khawar232767@gmail.com',
+  github: 'https://github.com/KhawarRafique02',
+  linkedin: 'www.linkedin.com/in/khawarrafique02', // TODO: update with your exact LinkedIn URL
+  email: 'khawar232767@gmail.com',
 }
 
 // ─────────────────────────────────────────────
 // NAVBAR
 // ─────────────────────────────────────────────
 function Navbar({ dark, setDark }) {
-  const [open, setOpen]       = useState(false)
+  const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -218,8 +218,8 @@ function Navbar({ dark, setDark }) {
 // HERO
 // ─────────────────────────────────────────────
 function Hero() {
-  const [typed, setTyped]     = useState('')
-  const [phase, setPhase]     = useState(0)
+  const [typed, setTyped] = useState('')
+  const [phase, setPhase] = useState(0)
   const LINES = [
     "const developer = {",
     "  name: 'Khawar Rafique',",
@@ -335,7 +335,7 @@ function Hero() {
             {/* Social links */}
             <div style={{ display: 'flex', gap: 12, marginTop: 32 }}>
               {[
-                { href: SOCIAL.github,   Icon: Github,   label: 'GitHub' },
+                { href: SOCIAL.github, Icon: Github, label: 'GitHub' },
                 { href: SOCIAL.linkedin, Icon: Linkedin, label: 'LinkedIn' },
                 { href: `mailto:${SOCIAL.email}`, Icon: Mail, label: 'Email' },
               ].map(({ href, Icon, label }) => (
@@ -435,10 +435,9 @@ function About() {
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               position: 'relative',
             }}>
-              {/* TODO: Replace this div with your actual photo:
-                  <img src="/profile.jpg" alt="Khawar Rafique" style={{ width:'100%', height:'100%', objectFit:'cover' }} />
-                  (Put your photo in the public folder as profile.jpg)
-              */}
+              {
+                <img src="/profile.jpg" alt="Khawar Rafique" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              }
               <div style={{ textAlign: 'center' }}>
                 <div style={{
                   width: 80, height: 80, borderRadius: '50%',
@@ -497,10 +496,10 @@ function About() {
               gap: 12, marginTop: 28,
             }}>
               {[
-                { icon: MapPin,        label: 'Location',   value: 'Lahore, Pakistan' },
-                { icon: Globe,         label: 'Work',       value: 'Remote Worldwide' },
-                { icon: GraduationCap, label: 'Degree',     value: 'BS Software Eng.' },
-                { icon: Briefcase,     label: 'Experience', value: '2+ Years' },
+                { icon: MapPin, label: 'Location', value: 'Lahore, Pakistan' },
+                { icon: Globe, label: 'Work', value: 'Remote Worldwide' },
+                { icon: GraduationCap, label: 'Degree', value: 'BS Software Eng.' },
+                { icon: Briefcase, label: 'Experience', value: '2+ Years' },
               ].map(({ icon: Icon, label, value }) => (
                 <div key={label} style={{
                   background: 'var(--surface)', border: '1px solid var(--border)',
@@ -542,10 +541,10 @@ function About() {
 // SKILLS
 // ─────────────────────────────────────────────
 const CATEGORY_ICONS = {
-  Frontend:  <Layers size={16} />,
-  Backend:   <Server size={16} />,
+  Frontend: <Layers size={16} />,
+  Backend: <Server size={16} />,
   Databases: <Database size={16} />,
-  Tools:     <Terminal size={16} />,
+  Tools: <Terminal size={16} />,
 }
 
 function Skills() {
@@ -828,7 +827,7 @@ function Testimonials() {
 // CONTACT
 // ─────────────────────────────────────────────
 function Contact() {
-  const [form, setForm]     = useState({ name: '', email: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
 
   const handleSubmit = (e) => {
@@ -838,7 +837,7 @@ function Contact() {
     // Option 2 - EmailJS: npm install @emailjs/browser then use emailjs.send(...)
     // For now, opens default mail client:
     const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`)
-    const body    = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`)
+    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`)
     window.open(`mailto:${SOCIAL.email}?subject=${subject}&body=${body}`)
     setStatus('sent')
     setTimeout(() => setStatus('idle'), 4000)
@@ -862,10 +861,10 @@ function Contact() {
           {/* Info */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
             {[
-              { Icon: Mail,   label: 'Email',    value: SOCIAL.email,    href: `mailto:${SOCIAL.email}` },
-              { Icon: Github, label: 'GitHub',   value: 'KhawarRafique02', href: SOCIAL.github },
+              { Icon: Mail, label: 'Email', value: SOCIAL.email, href: `mailto:${SOCIAL.email}` },
+              { Icon: Github, label: 'GitHub', value: 'KhawarRafique02', href: SOCIAL.github },
               { Icon: Linkedin, label: 'LinkedIn', value: 'Connect with me', href: SOCIAL.linkedin },
-              { Icon: Globe,  label: 'Upwork',   value: 'View my profile', href: 'https://www.upwork.com/freelancers/~01d4684356723490d0' },
+              { Icon: Globe, label: 'Upwork', value: 'View my profile', href: 'https://www.upwork.com/freelancers/~01d4684356723490d0' },
             ].map(({ Icon, label, value, href }) => (
               <a key={label} href={href} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
                 <div className="card-glass" style={{ padding: '16px 20px', display: 'flex', alignItems: 'center', gap: 14 }}>
@@ -896,8 +895,8 @@ function Contact() {
           <div className="card-glass" style={{ padding: 28 }}>
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {[
-                { id: 'name',    label: 'Your Name',    type: 'text',  placeholder: 'John Doe' },
-                { id: 'email',   label: 'Email Address', type: 'email', placeholder: 'john@example.com' },
+                { id: 'name', label: 'Your Name', type: 'text', placeholder: 'John Doe' },
+                { id: 'email', label: 'Email Address', type: 'email', placeholder: 'john@example.com' },
               ].map(({ id, label, type, placeholder }) => (
                 <div key={id}>
                   <label style={{ fontSize: 13, color: 'var(--text-2)', fontWeight: 500, display: 'block', marginBottom: 6 }}>
@@ -985,7 +984,7 @@ function Footer() {
 
         <div style={{ display: 'flex', gap: 12 }}>
           {[
-            { href: SOCIAL.github,   Icon: Github,   label: 'GitHub' },
+            { href: SOCIAL.github, Icon: Github, label: 'GitHub' },
             { href: SOCIAL.linkedin, Icon: Linkedin, label: 'LinkedIn' },
             { href: `mailto:${SOCIAL.email}`, Icon: Mail, label: 'Email' },
           ].map(({ href, Icon, label }) => (

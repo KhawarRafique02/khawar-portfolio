@@ -435,19 +435,7 @@ function About() {
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               position: 'relative',
             }}>
-              {
-                <img src="/profile.jpg" alt="Khawar Rafique" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              }
-              <div style={{ textAlign: 'center' }}>
-                <div style={{
-                  width: 80, height: 80, borderRadius: '50%',
-                  background: 'var(--accent)', margin: '0 auto 12px',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}>
-                  <span style={{ fontSize: 32, fontWeight: 700, color: '#fff', fontFamily: 'var(--font-space-grotesk)' }}>KR</span>
-                </div>
-                <p style={{ fontSize: 13, color: 'var(--text-3)' }}>Add profile.jpg to /public</p>
-              </div>
+              <img src="/profile.jpg" alt="Khawar Rafique" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
 
             {/* Floating badge */}

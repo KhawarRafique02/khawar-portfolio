@@ -84,10 +84,9 @@ const TESTIMONIALS = [
 
 const SOCIAL = {
   github: 'https://github.com/KhawarRafique02',
-  linkedin: 'www.linkedin.com/in/khawarrafique02', // TODO: update with your exact LinkedIn URL
+  linkedin: 'https://www.linkedin.com/in/khawar-rafique-1b9935312/',
   email: 'khawar232767@gmail.com',
 }
-
 // ─────────────────────────────────────────────
 // NAVBAR
 // ─────────────────────────────────────────────

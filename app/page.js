@@ -22,31 +22,54 @@ const SKILLS = {
 
 const PROJECTS = [
   {
-    title: 'CivAI – Next.js AI App',
+    title: 'KhawarAI – AI Chatbot',
+    description:
+      'A production-ready AI chatbot powered by Groq (Llama 3.3). Features real-time streaming responses, Supabase auth, persistent chat history, 4 AI modes (General, Code, Creative, Translator), and a beautiful dark/light UI.',
+    stack: ['Next.js 14', 'Groq AI', 'Supabase', 'Llama 3.3', 'Vercel'],
+    live: 'https://ai-chatbot-fawn.vercel.app',
+    github: 'https://github.com/KhawarRafique02/ai-chatbot',
+    gradient: 'from-violet-500/20 to-cyan-500/20',
+    badge: 'Featured',
+  },
+  {
+    title: 'TaskFlow Pro – SaaS Dashboard',
+    description:
+      'A modern SaaS project management dashboard with Kanban board, task tracking, projects management, team members UI, and full Supabase auth. Built with Next.js 14 and Tailwind CSS.',
+    stack: ['Next.js 14', 'Supabase', 'Tailwind CSS', 'PostgreSQL', 'Vercel'],
+    live: 'https://taskflow-pro-sigma.vercel.app',
+    github: 'https://github.com/KhawarRafique02/taskflow-pro',
+    gradient: 'from-blue-500/20 to-indigo-500/20',
+    badge: 'New',
+  },
+  {
+    title: 'CivAI – Next.js App',
     description:
       'A modern web application built with Next.js and Supabase. Features real-time data, authentication, and a clean dashboard UI deployed on Vercel.',
-    stack: ['Next.js', 'Supabase', 'PostgreSQL', 'Vercel', 'TypeScript'],
+    stack: ['Next.js', 'Supabase', 'PostgreSQL', 'Vercel'],
     live: 'https://civiai-phi.vercel.app',
     github: 'https://github.com/KhawarRafique02/civiai-next',
-    gradient: 'from-violet-500/20 to-cyan-500/20',
+    gradient: 'from-emerald-500/20 to-teal-500/20',
+    badge: null,
   },
   {
     title: 'Siqarah Portal',
     description:
       'A React.js web portal powered by Firebase for backend services. Features authentication, real-time database, and a modern responsive interface.',
-    stack: ['React.js', 'Firebase', 'Firestore', 'Vercel', 'CSS'],
-    live: '#',      // TODO: add live link
+    stack: ['React.js', 'Firebase', 'Firestore', 'Vercel'],
+    live: '#',
     github: 'https://github.com/KhawarRafique02/siqarah-portal',
     gradient: 'from-orange-500/20 to-pink-500/20',
+    badge: null,
   },
   {
     title: 'EduTrack Pro',
     description:
       'An education management platform for tracking student progress, assignments, and performance analytics with a clean modern UI.',
     stack: ['React.js', 'Node.js', 'MongoDB', 'REST API'],
-    live: '#',      // TODO: add live link
+    live: '#',
     github: 'https://github.com/KhawarRafique02/EduTrack-Pro',
-    gradient: 'from-emerald-500/20 to-teal-500/20',
+    gradient: 'from-rose-500/20 to-red-500/20',
+    badge: null,
   },
 ]
 
@@ -593,7 +616,7 @@ function Projects() {
           </p>
           <h2 className="section-title">Featured Projects</h2>
           <p className="section-sub" style={{ maxWidth: 480, margin: '0 auto' }}>
-            A selection of projects I've built with modern web technologies.
+            Real projects built and deployed with modern web technologies.
           </p>
         </div>
 
@@ -603,29 +626,45 @@ function Projects() {
           gap: 24,
         }}>
           {PROJECTS.map((p, i) => (
-            <div key={i} className="card-glass" style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+            <div key={i} className="card-glass" style={{
+              overflow: 'hidden', display: 'flex', flexDirection: 'column',
+              position: 'relative',
+            }}>
+              {/* Badge */}
+              {p.badge && (
+                <div style={{
+                  position: 'absolute', top: 12, right: 12, zIndex: 2,
+                  background: p.badge === 'Featured' ? 'var(--accent)' : '#22C55E',
+                  color: '#fff', fontSize: 11, fontWeight: 700,
+                  padding: '3px 10px', borderRadius: 100,
+                  letterSpacing: '0.05em',
+                }}>
+                  {p.badge}
+                </div>
+              )}
+
               {/* Gradient banner */}
               <div style={{
-                height: 140,
+                height: 130,
                 background: `linear-gradient(135deg, ${p.gradient.replace('from-', '').replace(' to-', ', ')})`,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 borderBottom: '1px solid var(--border)',
               }}>
-                <Code2 size={40} color="var(--accent)" style={{ opacity: 0.7 }} />
+                <Code2 size={38} color="var(--accent)" style={{ opacity: 0.7 }} />
               </div>
 
-              <div style={{ padding: 24, flex: 1, display: 'flex', flexDirection: 'column' }}>
+              <div style={{ padding: 22, flex: 1, display: 'flex', flexDirection: 'column' }}>
                 <h3 style={{
                   fontFamily: 'var(--font-space-grotesk)', fontWeight: 700,
-                  fontSize: 17, color: 'var(--text)', marginBottom: 10,
+                  fontSize: 16, color: 'var(--text)', marginBottom: 8,
                 }}>{p.title}</h3>
 
-                <p style={{ fontSize: 14, color: 'var(--text-2)', lineHeight: 1.7, flex: 1, marginBottom: 16 }}>
+                <p style={{ fontSize: 13.5, color: 'var(--text-2)', lineHeight: 1.7, flex: 1, marginBottom: 14 }}>
                   {p.description}
                 </p>
 
                 {/* Stack tags */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 20 }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 18 }}>
                   {p.stack.map(t => (
                     <span key={t} style={{
                       fontSize: 11, fontWeight: 500, padding: '3px 10px', borderRadius: 6,
@@ -638,12 +677,16 @@ function Projects() {
                 {/* Links */}
                 <div style={{ display: 'flex', gap: 10 }}>
                   {p.live !== '#' && (
-                    <a href={p.live} target="_blank" rel="noreferrer" className="btn-primary" style={{ fontSize: 13, padding: '8px 16px' }}>
-                      Live Demo <ExternalLink size={13} style={{ display: 'inline', marginLeft: 4 }} />
+                    <a href={p.live} target="_blank" rel="noreferrer"
+                      className="btn-primary"
+                      style={{ fontSize: 13, padding: '8px 16px', display: 'flex', alignItems: 'center', gap: 6 }}>
+                      Live Demo <ExternalLink size={13} />
                     </a>
                   )}
-                  <a href={p.github} target="_blank" rel="noreferrer" className="btn-outline" style={{ fontSize: 13, padding: '8px 16px' }}>
-                    <Github size={14} style={{ display: 'inline', marginRight: 6 }} />GitHub
+                  <a href={p.github} target="_blank" rel="noreferrer"
+                    className="btn-outline"
+                    style={{ fontSize: 13, padding: '8px 16px', display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <Github size={14} /> GitHub
                   </a>
                 </div>
               </div>
@@ -652,8 +695,9 @@ function Projects() {
         </div>
 
         <div style={{ textAlign: 'center', marginTop: 40 }}>
-          <a href={SOCIAL.github} target="_blank" rel="noreferrer" className="btn-outline">
-            View All on GitHub <Github size={15} style={{ display: 'inline', marginLeft: 6 }} />
+          <a href={SOCIAL.github} target="_blank" rel="noreferrer" className="btn-outline"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+            View All on GitHub <Github size={15} />
           </a>
         </div>
       </div>

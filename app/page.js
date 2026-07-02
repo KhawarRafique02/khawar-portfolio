@@ -56,7 +56,7 @@ const PROJECTS = [
     description:
       'A React.js web portal powered by Firebase for backend services. Features authentication, real-time database, and a modern responsive interface.',
     stack: ['React.js', 'Firebase', 'Firestore', 'Vercel'],
-    live: '#',
+    live: 'https://siqarah-portal.vercel.app/',
     github: 'https://github.com/KhawarRafique02/siqarah-portal',
     gradient: 'from-orange-500/20 to-pink-500/20',
     badge: null,
